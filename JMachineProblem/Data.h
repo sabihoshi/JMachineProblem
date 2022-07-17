@@ -1,53 +1,96 @@
 #pragma once
-#include <string> 
-#include <deque> 
-#include <stack> 
-#include <sstream> 
-#include <fstream> 
-#include <iostream> 
+#include <deque>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <stack>
+#include <string>
+
+#include "json.hpp"
+
 using namespace std;
 //programmer 1
 
 //Responsible for movie data
-struct VideoAdt {
-    int videoID, copies;
-    string Title,
-        Genre,
-        Production;
+struct VideoAdt
+{
+    int Id;
+    int Copies;
+    string Title;
+    string Genre;
+    string Production;
+    string Image;
+
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(VideoAdt, Id, Copies, Title, Genre, Production, Image)
 };
 
 //Responsible for customer data
-struct CustomerAdt {
-    int cID;
-    string Name, Address;
+struct CustomerAdt
+{
+    int Id;
+    string Name;
+    string Address;
+
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(CustomerAdt, Id, Name, Address)
+};
+
+struct RentAdt
+{
+    int CustomerId;
+    int VideoId;
+
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(RentAdt, CustomerId, VideoId)
+
+    bool operator==(const RentAdt& other) const
+    {
+        return CustomerId == other.CustomerId && VideoId == other.VideoId;
+    }
 };
 
 // Handles All Function
-class movieList {
+class MovieStore
+{
 private:
-    CustomerAdt custlq;
-    bool cQcheck = false;
-    deque < CustomerAdt > custQueue;
-
-    struct movieListNode {
-        VideoAdt movl;
-        struct movieListNode* Mnext;
-    };
-
-    movieListNode* Moviehead;
+    deque<CustomerAdt> customerQueue;
+    list<VideoAdt> videoList;
+    list<RentAdt> rentList;
 
 public:
-    int count, customerCount;
-    movieList();
+    MovieStore();
+
+    void DisplayMovies();
+
     //Movie/files function
-    void addMovie(VideoAdt movl);
-    void displayMovies();
-    void OpenMovieFile();
+    void AddMovie();
+
+    bool RentMovie(CustomerAdt& customer, VideoAdt& video);
+
+    bool ReturnMovie(CustomerAdt& customer, VideoAdt& video);
+
+    static void ShowMovieDetails(VideoAdt& video);
+
+    static void ShowCustomerDetails(CustomerAdt& video);
+
+    list<VideoAdt> GetMoviesByCustomer(CustomerAdt& customer);
+
+    CustomerAdt* GetCustomer(int id);
+
+    VideoAdt* GetVideo(int id);
+
+    void DisplayMovies(list<VideoAdt>& movies);
+
+
     void SaveMovieFile();
+    void SaveCustomerFile();
+    void SaveRentFile();
 
     //Customer/files function
-    bool isCustomerEmpty();
-    void addCustomer(CustomerAdt custl);
+    bool IsCustomerEmpty();
+
+    void AddCustomer();
+
     void OpenCustomerFile();
-    void SaveCustomerFile();
+    void OpenMovieFile();
+    void OpenRentFile();
 };

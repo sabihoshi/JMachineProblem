@@ -132,6 +132,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h" />
+    <ClInclude Include="json.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Customers.json">
+      <FileType>Document</FileType>
+    </None>
+    <CopyFileToFolders Include="Movies.json">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Rent.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

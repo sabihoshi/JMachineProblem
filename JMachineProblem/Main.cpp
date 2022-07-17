@@ -106,9 +106,6 @@ start:
     {
         system("clear||cls");
         store.DisplayMovies();
-        cout << string(50, ' ') << "\nPress enter key to continue... ";
-        cin.ignore();
-        cin.get();
     }
     else if (choice == 6)
     {
@@ -157,9 +154,6 @@ start:
             cout << string(50, ' ') << "INSERT A NEW CUSTOMER\n";
             cout << string(30, ' ') << "=============================================================================\n\n";
             store.AddCustomer();
-            cout << string(50, ' ') << "Press enter key to continue... ";
-            cin.ignore();
-            cin.get();
         }
         else if (ch1 == 2)
         {

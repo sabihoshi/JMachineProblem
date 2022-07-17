@@ -28,8 +28,6 @@ start:
         cout << string(50, ' ') << "INSERT A NEW MOVIE\n";
         cout << string(30, ' ') << "=============================================================================\n\n";
         store.AddMovie();
-        cout << string(50, ' ') << "Press enter key to continue... ";
-        cin.get();
     }
     else if (choice == 2)
     {
@@ -103,7 +101,6 @@ start:
         }
 
         MovieStore::ShowMovieDetails(*movie);
-        system("pause");
     }
     else if (choice == 5)
     {
@@ -137,8 +134,6 @@ start:
             cout << "Movie is not available" << endl;
         }
 
-        cout << string(50, ' ') << "Press enter key to continue... ";
-        system("pause");
     }
     else if (choice == 7)
     {
@@ -201,15 +196,11 @@ start:
             // Get all movies by the customer
             auto movies = store.GetMoviesByCustomer(*customer);
             store.DisplayMovies(movies);
-
-            cout << string(50, ' ') << "Press enter key to continue... ";
-            system("pause");
         }
         else
         {
             cout << "Try Again.";
         }
-        system("pause");
     }
     else if (choice == 8)
     {
@@ -224,6 +215,11 @@ start:
         cout << "Try Again.";
         system("pause");
     }
+
+    std::cout << "Press enter to continue...";
+    std::string pause;
+    std::getline(std::cin, pause);
+
     goto start;
 }
 

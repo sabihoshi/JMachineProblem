@@ -211,7 +211,7 @@ start:
     }
 
     std::cout << "Press enter to continue...";
-    std::string pause;
+    cin.ignore(10000, '\n'); std::string pause;
     std::getline(std::cin, pause);
 
     goto start;

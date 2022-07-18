@@ -261,7 +261,7 @@ void MovieStore::RentMovie()
     }
 
     int customerCode;
-    cout << "Enter the customer code: ";
+    cout << string(30, ' ') << "Enter the customer code: ";
     cin >> customerCode;
 
     auto customer = GetCustomer(customerCode);

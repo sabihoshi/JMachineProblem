@@ -67,7 +67,7 @@ Start:
         cout << "Try Again.";
     }
 
-    std::cout << "Press enter to continue...";
+    std::cout << string(30, ' ') << "Press enter to continue...";
     cin.ignore(10000, '\n');
     std::string pause;
     std::getline(std::cin, pause);

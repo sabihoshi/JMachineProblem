@@ -57,17 +57,23 @@ Start:
         store.SaveMovieFile();
         store.SaveCustomerFile();
         store.SaveRentFile();
-        cout << "Thank You! Please Come Again" << endl;
+        cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n\n\n\n\n";
+        cout << string(49, ' ') << "T H A N K  Y O U !  P L E A S E  C O M E  A G A I N .\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n\n\n\n\n\n\n\n\n\n\n";
 
         return 0;
     }
     else
     {
         if (!cin) cin.clear();
-        cout << "Try Again.";
+        cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << string(56, ' ') << "INVALID ENTRY! PLEASE TRY AGAIN.\n";
+        cout << string(35, ' ') << "=============================================================================\n";
     }
 
-    std::cout << string(30, ' ') << "Press enter to continue...";
+    std::cout << string(38, ' ') << "Press enter to continue...";
     cin.ignore(10000, '\n');
     std::string pause;
     std::getline(std::cin, pause);
@@ -78,19 +84,20 @@ Start:
 int Menu()
 {
     int choice;
-    cout << string(10, ' ') << "==========================================================================================\n";
-    cout << string(30, ' ') << "Hey there, movie geek! What can I do for you?" << "\n";
-    cout << string(10, ' ') << "==========================================================================================\n";
-    cout << string(40, ' ') << "[1] Insert a New Movie\n";
-    cout << string(40, ' ') << "[2] Rent a Movie\n";
-    cout << string(40, ' ') << "[3] Return a Movie\n";
-    cout << string(40, ' ') << "[4] Show Movie Details\n";
-    cout << string(40, ' ') << "[5] Display All Movie\n";
-    cout << string(40, ' ') << "[6] Check Movie Availability\n";
-    cout << string(40, ' ') << "[7] Customer's Maintenance\n";
-    cout << string(40, ' ') << "[8] Exit Program\n";
-    cout << string(10, ' ') << "==========================================================================================\n\n";
-    cout << string(10, ' ') << "Please choose an option... ";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(28, ' ') << "==========================================================================================\n";
+    cout << string(50, ' ') << "HEY THERE, MOVIE GEEK! WHAT CAN I DO FOR YOU?" << "\n";
+    cout << string(28, ' ') << "==========================================================================================\n\n";
+    cout << string(56, ' ') << "[1] Insert a New Movie\n\n";
+    cout << string(56, ' ') << "[2] Rent a Movie\n\n";
+    cout << string(56, ' ') << "[3] Return a Movie\n\n";
+    cout << string(56, ' ') << "[4] Show Movie Details\n\n";
+    cout << string(56, ' ') << "[5] Display All Movies\n\n";
+    cout << string(56, ' ') << "[6] Check Movie Availability\n\n";
+    cout << string(56, ' ') << "[7] Customer's Maintenance\n\n";
+    cout << string(56, ' ') << "[8] Exit Program\n\n";
+    cout << string(28, ' ') << "==========================================================================================\n";
+    cout << string(31, ' ') << "Please choose an option... ";
     cin >> choice;
 
     return choice;

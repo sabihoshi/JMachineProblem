@@ -15,6 +15,7 @@ void MovieStore::DisplayMovies()
 //Display All Movies - Programmer 1
 void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
     cout << left;
     cout << "======================================================================================================================\n";
     cout << string(40, ' ') << "DISPLAY MOVIES\n";
@@ -34,71 +35,74 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 //Add Movie - Programmer 1
 void MovieStore::AddMovie()
 {
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "INSERT A NEW MOVIE\n";
-    cout << string(10, ' ') << "=============================================================================\n\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(64, ' ') << "INSERT A NEW MOVIE\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
 
     int count = videoList.size() + 1;
 
-    cout << string(30, ' ') << "Enter Movie Details" << endl;
-    cout << string(30, ' ') << "Code: " << count << "\n";
+    cout << string(48, ' ') << "Movie ID       : " << count << "\n";
 
-    cout << string(30, ' ') << "Title: ";
+    cout << '\n' << string(48, ' ') << "Movie Title    : ";
     string title;
     cin.ignore();
     getline(cin, title);
 
-    cout << string(30, ' ') << "Genre: ";
+    cout << '\n' << string(48, ' ') << "Movie Genre    : ";
     string genre;
     getline(cin, genre);
 
-    cout << string(30, ' ') << "Producer: ";
+    cout << '\n' << string(48, ' ') << "Production     : ";
     string producer;
     getline(cin, producer);
 
-    cout << string(30, ' ') << "Image: ";
+    cout << '\n' << string(48, ' ') << "Image Filename : ";
     string image;
     getline(cin, image);
 
     int copies;
-    cout << string(30, ' ') << "Copies: ";
+    cout << '\n' << string(48, ' ') << "Copies Count   : ";
     cin >> copies;
 
     videoList.push_back({count, copies, title, genre, producer, image});
     sort(videoList.begin(), videoList.end());
 
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "Movie has been inserted successfully!\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << endl;
+    cout << string(48, ' ') << "Movie has been inserted successfully!\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
 }
 
 void MovieStore::ReturnMovie()
 {
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "RETURN A MOVIE\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(64, ' ') << "RETURN A MOVIE\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
 
     int movieCode;
-    cout << string(30, ' ') << "Enter the movie code: ";
+    cout << string(48, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);
     if (!movie)
     {
-        cout << string(30, ' ') << "Movie not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << endl;
+        cout << string(48, ' ') << "Movie not found!\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
         return;
     }
 
     int customerCode;
-    cout << string(30, ' ') << "Enter the customer code: ";
+    cout << string(48, ' ') << "Enter the customer code: ";
     cin >> customerCode;
 
     auto customer = GetCustomer(customerCode);
     if (!customer)
     {
-        cout << string(30, ' ') << "Customer not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+    cout << endl;
+    cout << string(48, ' ') << "Customer not found!\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
         return;
     }
 
@@ -107,19 +111,21 @@ void MovieStore::ReturnMovie()
 
 void MovieStore::ShowMovieDetails()
 {
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "SHOW MOVIE DETAILS\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(64, ' ') << "SHOW MOVIE DETAILS\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
 
     int movieCode;
-    cout << string(30, ' ') << "Enter the movie code: ";
+    cout << string(48, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);
     if (!movie)
     {
-        cout << "Movie not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+    cout << endl;
+    cout << string(48, ' ') << "Movie not found!\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
         return;
     }
 
@@ -128,87 +134,94 @@ void MovieStore::ShowMovieDetails()
 
 void MovieStore::CheckVideoAvailability()
 {
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "CHECK MOVIE AVAILABILITY\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(64, ' ') << "CHECK MOVIE AVAILABILITY\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
 
     int movieCode;
-    cout << string(30, ' ') << "Enter the movie code: ";
+    cout << string(48, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);
     if (!movie)
     {
-        cout << string(30, ' ') << "Movie not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << endl;
+        cout << string(48, ' ') << "Movie not found!\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
     }
     else if (movie->Copies > 0)
     {
-        cout << string(30, ' ') << "Movie is available" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+    cout << endl;
+    cout << string(48, ' ') << "Movie is available!\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
     }
     else
     {
-        cout << string(30, ' ') << "Movie is not available" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << endl;
+        cout << string(48, ' ') << "Movie not available!\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
     }
 }
 
 void MovieStore::CustomerMaintenance()
 {
-    cout << string(10, ' ') << "==========================================================================================\n";
-    cout << string(30, ' ') << "CUSTOMER MAINTENANCE\n";
-    cout << string(10, ' ') << "==========================================================================================\n";
-    cout << string(30, ' ') << "[1] Add New Customer\n";
-    cout << string(30, ' ') << "[2] Customer Details\n";
-    cout << string(30, ' ') << "[3] List of Movies Rented\n";
-    cout << string(10, ' ') << "==========================================================================================\n\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(64, ' ') << "CUSTOMER MAINTENANCE\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
+    cout << string(48, ' ') << "[1] Add New Customer\n";
+    cout << string(48, ' ') << "[2] Customer Details\n";
+    cout << string(48, ' ') << "[3] List of Movies Rented\n";
+    cout << string(35, ' ') << "==========================================================================================\n";
 
     int choice;
-    cout << string(30, ' ') << "Please choose an option... ";
+    cout << string(35, ' ') << "Please choose an option... ";
     cin >> choice;
 
     system("clear||cls");
 
     if (choice == 1)
     {
-        cout << string(10, ' ') << "=============================================================================\n";
-        cout << string(30, ' ') << "INSERT A NEW CUSTOMER\n";
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << string(64, ' ') << "ADD A NEW CUSTOMER\n";
+        cout << string(35, ' ') << "=============================================================================\n\n";
 
         int count = customerQueue.size() + 1;
 
-        cout << '\n' << string(30, ' ') << "Enter Customer Details" << endl;
-        cout << string(30, ' ') << "Code: " << count;
+        cout << string(48, ' ') << "Customer ID : " << count;
 
         string name;
         cin.ignore();
-        cout << string(30, ' ') << "Name: ";
+        cout << "\n\n" << string(48, ' ') << "Name        : ";
         getline(cin, name);
 
         string address;
-        cout << string(30, ' ') << "Address: ";
+        cout << '\n' << string(48, ' ') << "Address     : ";
         getline(cin, address);
 
         customerQueue.push_back({count, name, address});
 
-        cout << "\n\n" << string(30, ' ') << "New Customer Added Successfully!\n" << endl;
-        cout << string(30, ' ') << "=============================================================================\n";
+        cout << "\n\n" << string(48, ' ') << "New Customer Added Successfully!\n" << endl;
+        cout << string(35, ' ') << "=============================================================================\n";
     }
     else if (choice == 2)
     {
-        cout << string(10, ' ') << "=============================================================================\n";
-        cout << string(30, ' ') << "SHOW CUSTOMER DETAILS\n";
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << string(64, ' ') << "SHOW CUSTOMER DETAILS\n";
+        cout << string(35, ' ') << "=============================================================================\n\n";
 
         int customerCode;
-        cout << "Enter the customer code: ";
+        cout << string(48, ' ') << "Enter the customer code: ";
         cin >> customerCode;
 
         auto customer = GetCustomer(customerCode);
         if (!customer)
         {
-            cout << "Customer not found" << endl;
+            cout << "\n\n" << string(48, ' ') << "Customer not found!\n" << endl;
+            cout << string(35, ' ') << "=============================================================================\n";
             return;
         }
 
@@ -216,18 +229,20 @@ void MovieStore::CustomerMaintenance()
     }
     else if (choice == 3)
     {
-        cout << string(10, ' ') << "=============================================================================\n";
-        cout << string(30, ' ') << "LIST ALL VIDEOS RENTED BY A CUSTOMER\n";
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << string(64, ' ') << "LIST ALL VIDEOS RENTED BY A CUSTOMER\n";
+        cout << string(35, ' ') << "=============================================================================\n\n";
 
         int customerCode;
-        cout << string(30, ' ') << "Enter the customer code: ";
+        cout << string(48, ' ') << "Enter the customer code: ";
         cin >> customerCode;
 
         auto customer = GetCustomer(customerCode);
         if (!customer)
         {
-            cout << string(30, ' ') << "Customer not found" << endl;
+            cout << "\n\n" << string(48, ' ') << "Customer not found!\n" << endl;
+            cout << string(35, ' ') << "=============================================================================\n";
             return;
         }
 
@@ -238,37 +253,39 @@ void MovieStore::CustomerMaintenance()
     }
     else
     {
-        cout << string(30, ' ') << "Try Again.";
+        cout << "\n\n" << string(48, ' ') << "Invalid entry! Please try again... \n" << endl;
+        cout << string(35, ' ') << "=============================================================================\n";
     }
 }
 
 void MovieStore::RentMovie()
 {
-    cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "RENT A MOVIE\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    cout << string(35, ' ') << "=============================================================================\n";
+    cout << string(66, ' ') << "RENT A MOVIE\n";
+    cout << string(35, ' ') << "=============================================================================\n\n";
 
     int movieCode;
-    cout << string(30, ' ') << "Enter the movie code: ";
+    cout << string(48, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);
     if (!movie)
     {
-        cout << string(30, ' ') << "Movie not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << "\n\n" << string(48, ' ') << "Movie not found!\n" << endl;
+        cout << string(35, ' ') << "=============================================================================\n";
         return;
     }
 
     int customerCode;
-    cout << string(30, ' ') << "Enter the customer code: ";
+    cout << '\n' << string(48, ' ') << "Enter the customer code: ";
     cin >> customerCode;
 
     auto customer = GetCustomer(customerCode);
     if (!customer)
     {
-        cout << string(30, ' ') << "Customer not found" << endl;
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << "\n\n" << string(48, ' ') << "Customer not found!\n\n" << endl;
+        cout << string(35, ' ') << "=============================================================================\n";
         return;
     }
 
@@ -281,14 +298,14 @@ bool MovieStore::RentMovie(CustomerAdt& customer, VideoAdt& video)
     {
         video.Copies--;
         rentList.push_back({customer.Id, video.Id});
-        cout << string(30, ' ') << "Movie has been rented successfully!\n";
-        cout << string(10, ' ') << "=============================================================================\n";
+        cout << '\n' << string(48, ' ') << "Movie has been rented successfully!\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
 
         return true;
     }
 
-    cout << string(30, ' ') << "Movie is out of stock!\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+        cout << '\n' << string(48, ' ') << "Movie is out of stock!\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
 
     return false;
 }
@@ -301,14 +318,14 @@ bool MovieStore::ReturnMovie(CustomerAdt& customer, VideoAdt& video)
         {
             video.Copies++;
             rentList.erase(find(rentList.begin(), rentList.end(), rent));
-            cout << string(30, ' ') << "Movie has been returned successfully!\n";
-            cout << string(10, ' ') << "=============================================================================\n";
+            cout << '\n' << string(48, ' ') << "Movie has been returned successfully!\n";
+            cout << string(35, ' ') << "=============================================================================\n";
             return true;
         }
     }
 
-    cout << string(30, ' ') << "Movie is not rented by this customer!\n";
-    cout << string(10, ' ') << "=============================================================================\n";
+    cout << '\n' << string(48, ' ') << "Movie is not rented by this customer!\n";
+    cout << string(35, ' ') << "=============================================================================\n";
     return false;
 }
 
@@ -316,7 +333,7 @@ void MovieStore::ShowMovieDetails(VideoAdt& video)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY MOVIE\n";
+    cout << string(40, ' ') << "DISPLAY ALL MOVIEs\n";
     cout << "======================================================================================================================\n";
     cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
     cout << "======================================================================================================================\n";

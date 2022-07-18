@@ -57,10 +57,19 @@ Start:
         store.SaveMovieFile();
         store.SaveCustomerFile();
         store.SaveRentFile();
+        system("clear||cls");
         cout << "\n\n\n\n\n\n\n\n\n\n\n";
-        cout << string(35, ' ') << "=============================================================================\n\n\n\n\n";
-        cout << string(49, ' ') << "T H A N K  Y O U !  P L E A S E  C O M E  A G A I N .\n\n\n\n\n";
-        cout << string(35, ' ') << "=============================================================================\n\n\n\n\n\n\n\n\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << string(52, ' ') << "STAR PLATINUM'S MOVIE RENTAL SERVICE SYSTEM\n";
+        cout << string(35, ' ') << "=============================================================================\n\n";
+        cout << setw(98) << "Final Project in Data Structures and Algorithms\n";
+        cout << setw(90) << "S E C T I O N  T N 0 2\n\n\n\n";
+        cout << setw(66) << "Created by:\n\n";
+        cout << setw(81) << "Camasura, Jasmine L.\n\n";
+        cout << setw(86) << "Ignacio, Jairell Louis J.\n\n";
+        cout << setw(82) << "Vicio, Shahani Fe D.\n\n\n";
+        cout << string(35, ' ') << "=============================================================================\n";
+        cout << "\n\n\n\n\n\n\n\n";
 
         return 0;
     }

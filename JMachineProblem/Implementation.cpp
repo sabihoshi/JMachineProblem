@@ -17,9 +17,9 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY MOVIES\n";
+    cout << string(35, ' ') << "DISPLAY MOVIES\n";
     cout << "======================================================================================================================\n\n";
-    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
+    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << setw(5) << "NO. OF COPIES" << "IMAGE" << "\n";
     cout << "======================================================================================================================\n";
     for (auto& video : movies)
     {
@@ -27,7 +27,8 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
         cout << setw(10) << video.Title;
         cout << setw(30) << video.Genre;
         cout << setw(30) << video.Production;
-        cout << video.Copies << endl;
+        cout << setw(5)  << video.Copies;
+        cout << video.Image << endl;
     }
 }
 
@@ -35,7 +36,7 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 void MovieStore::AddMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "INSERT A NEW MOVIE\n";
+    cout << string(35, ' ') << "INSERT A NEW MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n\n";
 
     int count = videoList.size() + 1;
@@ -68,14 +69,14 @@ void MovieStore::AddMovie()
     sort(videoList.begin(), videoList.end());
 
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "Movie has been inserted successfully!\n";
+    cout << string(35, ' ') << "Movie has been inserted successfully!\n";
     cout << string(10, ' ') << "=============================================================================\n";
 }
 
 void MovieStore::ReturnMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "RETURN A MOVIE\n";
+    cout << string(35, ' ') << "RETURN A MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -108,7 +109,7 @@ void MovieStore::ReturnMovie()
 void MovieStore::ShowMovieDetails()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "SHOW MOVIE DETAILS\n";
+    cout << string(35, ' ') << "SHOW MOVIE DETAILS\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -129,7 +130,7 @@ void MovieStore::ShowMovieDetails()
 void MovieStore::CheckVideoAvailability()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "CHECK MOVIE AVAILABILITY\n";
+    cout << string(35, ' ') << "CHECK MOVIE AVAILABILITY\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -245,7 +246,7 @@ void MovieStore::CustomerMaintenance()
 void MovieStore::RentMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(40, ' ') << "RENT A MOVIE\n";
+    cout << string(35, ' ') << "RENT A MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -315,24 +316,24 @@ bool MovieStore::ReturnMovie(CustomerAdt& customer, VideoAdt& video)
 void MovieStore::ShowMovieDetails(VideoAdt& video)
 {
     cout << left;
-    cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY MOVIE\n";
-    cout << "======================================================================================================================\n";
-    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
-    cout << "======================================================================================================================\n";
+    cout << string(10, ' ') << "=============================================================================\n";
+    cout << string(35, ' ') << "DISPLAY MOVIE\n";
+    cout << string(10, ' ') << "=============================================================================\n";
 
-    cout << setw(5) << video.Id;
-    cout << setw(10) << video.Title;
-    cout << setw(30) << video.Genre;
-    cout << setw(30) << video.Production;
-    cout << video.Copies << endl << endl;
+    cout << setw(15) << "Movie ID" << video.Id << '\n';
+    cout << setw(15) << "Movie Title" << video.Title << '\n';
+    cout << setw(15) << "Movie Genre" << video.Genre << '\n';
+    cout << setw(15) << "Production" << video.Production << '\n';
+    cout << setw(15) << "Movie Copies" << video.Copies << '\n';
+    cout << setw(15) << "Movie Image" << video.Image << '\n';
+    cout << string(10, ' ') << "=============================================================================\n";
 }
 
 void MovieStore::ShowCustomerDetails(CustomerAdt& video)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY CUSTOMER\n";
+    cout << string(35, ' ') << "DISPLAY CUSTOMER\n";
     cout << "======================================================================================================================\n";
     cout << setw(5) << "ID" << setw(10) << "NAME" << "ADDRESS" << endl;
     cout << "======================================================================================================================\n";

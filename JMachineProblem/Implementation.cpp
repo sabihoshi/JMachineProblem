@@ -17,7 +17,7 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(50, ' ') << "DISPLAY MOVIES\n";
+    cout << string(40, ' ') << "DISPLAY MOVIES\n";
     cout << "======================================================================================================================\n\n";
     cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
     cout << "======================================================================================================================\n";
@@ -35,7 +35,7 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 void MovieStore::AddMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "INSERT A NEW MOVIE\n";
+    cout << string(40, ' ') << "INSERT A NEW MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n\n";
 
     int count = videoList.size() + 1;
@@ -68,14 +68,14 @@ void MovieStore::AddMovie()
     sort(videoList.begin(), videoList.end());
 
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "Movie has been inserted successfully!\n";
+    cout << string(40, ' ') << "Movie has been inserted successfully!\n";
     cout << string(10, ' ') << "=============================================================================\n";
 }
 
 void MovieStore::ReturnMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "RETURN A MOVIE\n";
+    cout << string(40, ' ') << "RETURN A MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -108,7 +108,7 @@ void MovieStore::ReturnMovie()
 void MovieStore::ShowMovieDetails()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "SHOW MOVIE DETAILS\n";
+    cout << string(40, ' ') << "SHOW MOVIE DETAILS\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -129,7 +129,7 @@ void MovieStore::ShowMovieDetails()
 void MovieStore::CheckVideoAvailability()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "CHECK MOVIE AVAILABILITY\n";
+    cout << string(40, ' ') << "CHECK MOVIE AVAILABILITY\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -245,7 +245,7 @@ void MovieStore::CustomerMaintenance()
 void MovieStore::RentMovie()
 {
     cout << string(10, ' ') << "=============================================================================\n";
-    cout << string(50, ' ') << "RENT A MOVIE\n";
+    cout << string(40, ' ') << "RENT A MOVIE\n";
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
@@ -316,7 +316,7 @@ void MovieStore::ShowMovieDetails(VideoAdt& video)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(50, ' ') << "DISPLAY MOVIE\n";
+    cout << string(40, ' ') << "DISPLAY MOVIE\n";
     cout << "======================================================================================================================\n";
     cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
     cout << "======================================================================================================================\n";
@@ -332,7 +332,7 @@ void MovieStore::ShowCustomerDetails(CustomerAdt& video)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(50, ' ') << "DISPLAY CUSTOMER\n";
+    cout << string(40, ' ') << "DISPLAY CUSTOMER\n";
     cout << "======================================================================================================================\n";
     cout << setw(5) << "ID" << setw(10) << "NAME" << "ADDRESS" << endl;
     cout << "======================================================================================================================\n";

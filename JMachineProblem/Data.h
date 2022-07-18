@@ -18,9 +18,9 @@ struct VideoAdt
 
     bool operator<(const VideoAdt& other) const
     {
-        return Id == other.Id;
+        return Id < other.Id;
     }
-
+	
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(VideoAdt, Id, Copies, Title, Genre, Production, Image)
 };
 

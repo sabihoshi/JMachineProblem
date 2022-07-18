@@ -1,7 +1,7 @@
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include <fstream>
 
 #include "Data.h"
 using namespace std;
@@ -132,7 +132,7 @@ void MovieStore::CheckVideoAvailability()
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
-    cout << "Enter the movie code: ";
+    cout << string(30, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);
@@ -220,13 +220,13 @@ void MovieStore::CustomerMaintenance()
         cout << string(10, ' ') << "=============================================================================\n";
 
         int customerCode;
-        cout << "Enter the customer code: ";
+        cout << string(30, ' ') << "Enter the customer code: ";
         cin >> customerCode;
 
         auto customer = GetCustomer(customerCode);
         if (!customer)
         {
-            cout << "Customer not found" << endl;
+            cout << string(30, ' ') << "Customer not found" << endl;
             return;
         }
 
@@ -237,7 +237,7 @@ void MovieStore::CustomerMaintenance()
     }
     else
     {
-        cout << "Try Again.";
+        cout << string(30, ' ') << "Try Again.";
     }
 }
 
@@ -248,7 +248,7 @@ void MovieStore::RentMovie()
     cout << string(10, ' ') << "=============================================================================\n";
 
     int movieCode;
-    cout << "Enter the movie code: ";
+    cout << string(30, ' ') << "Enter the movie code: ";
     cin >> movieCode;
 
     auto movie = GetVideo(movieCode);

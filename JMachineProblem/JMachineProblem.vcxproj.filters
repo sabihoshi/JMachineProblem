@@ -31,7 +31,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Movies.json" />
     <None Include="Customers.json" />
+    <None Include="Movies.json" />
   </ItemGroup>
 </Project>

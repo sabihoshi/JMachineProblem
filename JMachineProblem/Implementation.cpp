@@ -20,20 +20,20 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
     cout << string(13, ' ') << "==================================================================================================================================================\n";
     cout << string(65, ' ') << "D I S P L A Y  A L L  M O V I E S\n";
     cout << string(13, ' ') << "==================================================================================================================================================\n\n";
-    cout << "\t\t" << "ID" << "\t" << "TITLE" << "\t\t\t\t" << "GENRE" << "\t\t" << "PRODUCTION" << "\t\t\t\t" << "NO. OF COPIES" << "\t" << "IMAGE" << "\n";
+    cout << string(25, ' ') << setw(10) << "ID" << setw(30) << "TITLE" << setw(15) << "GENRE" << setw(30) << "PRODUCTION" << setw(15) << "COPIES" << setw(25) << "IMAGE" << "\n";
     cout << string(13, ' ') << "--------------------------------------------------------------------------------------------------------------------------------------------------\n";
     
     for (auto& video : movies)
     {
-        cout << "\t\t" << video.Id;
-        cout << "\t" << video.Title;
-        cout << "\t\t\t\t" << video.Genre;
-        cout << "\t\t" << video.Production;
-        cout << "\t\t\t\t"  << video.Copies;
-        cout << "\t" << video.Image << endl;
+        cout << string(25, ' ') << setw(10) << video.Id;
+        cout << setw(30) << video.Title;
+        cout << setw(15) << video.Genre;
+        cout << setw(30) << video.Production;
+        cout << setw(15)  << video.Copies;
+        cout << setw(25) << video.Image << endl;
     }
 
-    cout << string(13, ' ') << "==================================================================================================================================================\n";
+    cout << "\n" << string(13, ' ') << "==================================================================================================================================================\n";
 }
 
 //Add Movie - Programmer 1
@@ -179,7 +179,7 @@ void MovieStore::CustomerMaintenance()
     cout << string(35, ' ') << "=============================================================================\n\n";
     cout << string(60, ' ') << "[1] Add New Customer\n\n";
     cout << string(60, ' ') << "[2] Customer Details\n\n";
-    cout << string(60, ' ') << "[3] List of Movies Rented\n\n";
+    cout << string(60, ' ') << "[3] List All Movies Rented\n\n";
     cout << string(35, ' ') << "=============================================================================\n";
 
     int choice;
@@ -238,7 +238,7 @@ void MovieStore::CustomerMaintenance()
     {
         cout << "\n\n\n\n\n\n\n\n\n\n\n";
         cout << string(35, ' ') << "=============================================================================\n";
-        cout << string(55, ' ') << "LIST ALL VIDEOS RENTED BY A CUSTOMER\n";
+        cout << string(56, ' ') << "LIST OF MOVIES RENTED BY A CUSTOMER\n";
         cout << string(35, ' ') << "=============================================================================\n\n";
 
         int customerCode;
@@ -256,7 +256,12 @@ void MovieStore::CustomerMaintenance()
         auto movies = GetMoviesByCustomer(*customer);
 
         ShowCustomerDetails(*customer);
-        DisplayMovies(movies);
+        for (auto& video : movies)
+        {
+            cout << "\n" << string(48, ' ') << "Video ID    : " << video.Id << endl;
+            cout << string(48, ' ') << "Movie Title : " << video.Title << endl;
+        }
+        cout << '\n' << string(35, ' ') << "=============================================================================\n";
     }
     else
     {

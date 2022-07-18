@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "CustomerId": 1,
+        "VideoId": 1
+    },
+    {
+        "CustomerId": 1,
+        "VideoId": 3
+    }
+]

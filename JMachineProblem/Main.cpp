@@ -18,183 +18,39 @@ int main()
     store.OpenMovieFile();
     store.OpenCustomerFile();
     store.OpenRentFile();
-start:
+
+Start:
+    system("cls||clear");
     const int choice = Menu();
+    system("cls||clear");
+
     if (choice == 1)
     {
-        system("clear||cls");
-        cout << "\n\n\n\n\n";
-        cout << string(30, ' ') << "=============================================================================\n";
-        cout << string(50, ' ') << "INSERT A NEW MOVIE\n";
-        cout << string(30, ' ') << "=============================================================================\n\n";
         store.AddMovie();
     }
     else if (choice == 2)
     {
-        cout << "Rent A Movie" << endl;
-
-        int movieCode;
-        cout << "Enter the movie code: ";
-        cin >> movieCode;
-
-        auto movie = store.GetVideo(movieCode);
-        if (!movie)
-        {
-            cout << "Movie not found" << endl;
-            goto start;
-        }
-
-        int customerCode;
-        cout << "Enter the customer code: ";
-        cin >> customerCode;
-
-        auto customer = store.GetCustomer(customerCode);
-        if (!customer)
-        {
-            cout << "Customer not found" << endl;
-            goto start;
-        }
-
-        store.RentMovie(*customer, *movie);
+        store.RentMovie();
     }
     else if (choice == 3)
     {
-        cout << "Return A Movie" << endl;
-
-        int movieCode;
-        cout << "Enter the movie code: ";
-        cin >> movieCode;
-
-        auto movie = store.GetVideo(movieCode);
-        if (!movie)
-        {
-            cout << "Movie not found" << endl;
-            goto start;
-        }
-
-        int customerCode;
-        cout << "Enter the customer code: ";
-        cin >> customerCode;
-
-        auto customer = store.GetCustomer(customerCode);
-        if (!customer)
-        {
-            cout << "Customer not found" << endl;
-            goto start;
-        }
-
-        store.ReturnMovie(*customer, *movie);
+        store.ReturnMovie();
     }
     else if (choice == 4)
     {
-        cout << "Show Movie Details" << endl;
-
-        int movieCode;
-        cout << "Enter the movie code: ";
-        cin >> movieCode;
-
-        auto movie = store.GetVideo(movieCode);
-        if (!movie)
-        {
-            cout << "Movie not found" << endl;
-            goto start;
-        }
-
-        MovieStore::ShowMovieDetails(*movie);
+        store.ShowMovieDetails();
     }
     else if (choice == 5)
     {
-        system("clear||cls");
         store.DisplayMovies();
     }
     else if (choice == 6)
     {
-        cout << "Check Movie Availability" << endl;
-
-        int movieCode;
-        cout << "Enter the movie code: ";
-        cin >> movieCode;
-
-        auto movie = store.GetVideo(movieCode);
-        if (!movie)
-        {
-            cout << "Movie not found" << endl;
-            goto start;
-        }
-
-        if (movie->Copies > 0)
-        {
-            cout << "Movie is available" << endl;
-        }
-        else
-        {
-            cout << "Movie is not available" << endl;
-        }
-
+        store.CheckVideoAvailability();
     }
     else if (choice == 7)
     {
-        system("clear||cls");
-        cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n";
-        cout << string(30, ' ') << "==========================================================================================\n\n";
-        cout << string(50, ' ') << "CUSTOMER MAINTENANCE" << "\n\n";
-        cout << string(30, ' ') << "==========================================================================================\n\n\n";
-        cout << string(50, ' ') << "[1] Add New Customer\n\n";
-        cout << string(50, ' ') << "[2] Customer Details\n\n";
-        cout << string(50, ' ') << "[3] List of Movies Rented\n\n";
-        cout << string(30, ' ') << "==========================================================================================\n";
-        int ch1;
-        cout << string(50, ' ') << "Please choose an option... ";
-        cin >> ch1;
-        if (ch1 == 1)
-        {
-            system("clear||cls");
-            cout << "\n\n\n\n\n";
-            cout << string(30, ' ') << "=============================================================================\n";
-            cout << string(50, ' ') << "INSERT A NEW CUSTOMER\n";
-            cout << string(30, ' ') << "=============================================================================\n\n";
-            store.AddCustomer();
-        }
-        else if (ch1 == 2)
-        {
-            cout << "Show Customer Details" << endl;
-
-            int customerCode;
-            cout << "Enter the customer code: ";
-            cin >> customerCode;
-
-            auto customer = store.GetCustomer(customerCode);
-            if (!customer)
-            {
-                cout << "Customer not found" << endl;
-                goto start;
-            }
-
-            store.ShowCustomerDetails(*customer);
-        }
-        else if (ch1 == 3)
-        {
-            cout << "List All Movies Rented By The Customer" << endl;
-
-            int customerCode;
-            cout << "Enter the customer code: ";
-            cin >> customerCode;
-
-            auto customer = store.GetCustomer(customerCode);
-            if (!customer)
-            {
-                cout << "Customer not found" << endl;
-                goto start;
-            }
-
-            // Get all movies by the customer
-            auto movies = store.GetMoviesByCustomer(*customer);
-            store.DisplayMovies(movies);
-        }
-        else
-        {
-            cout << "Try Again.";
-        }
+        store.CustomerMaintenance();
     }
     else if (choice == 8)
     {
@@ -202,39 +58,39 @@ start:
         store.SaveCustomerFile();
         store.SaveRentFile();
         cout << "Thank You! Please Come Again" << endl;
-        exit(0);
+
+        return 0;
     }
     else
     {
+        if (!cin) cin.clear();
         cout << "Try Again.";
-        system("pause");
     }
 
     std::cout << "Press enter to continue...";
-    cin.ignore(10000, '\n'); std::string pause;
+    cin.ignore(10000, '\n');
+    std::string pause;
     std::getline(std::cin, pause);
 
-    goto start;
+    goto Start;
 }
 
 int Menu()
 {
     int choice;
-    system("clear||cls");
-    cout << "\n\n\n\n\n\n\n\n";
-    cout << string(30, ' ') << "==========================================================================================\n\n";
-    cout << string(50, ' ') << "Hey there, movie geek! What can I do for you?" << "\n\n";
-    cout << string(30, ' ') << "==========================================================================================\n\n\n";
-    cout << string(50, ' ') << "[1] Insert a New Movie\n\n";
-    cout << string(50, ' ') << "[2] Rent a Movie\n\n";
-    cout << string(50, ' ') << "[3] Return a Movie\n\n";
-    cout << string(50, ' ') << "[4] Show Movie Details\n\n";
-    cout << string(50, ' ') << "[5] Display All Movie\n\n";
-    cout << string(50, ' ') << "[6] Check Movie Availability\n\n";
-    cout << string(50, ' ') << "[7] Customer's Maintenance\n\n";
-    cout << string(50, ' ') << "[8] Exit Program\n\n";
-    cout << string(30, ' ') << "==========================================================================================\n\n";
-    cout << string(50, ' ') << "Please choose an option... ";
+    cout << string(10, ' ') << "==========================================================================================\n";
+    cout << string(30, ' ') << "Hey there, movie geek! What can I do for you?" << "\n";
+    cout << string(10, ' ') << "==========================================================================================\n";
+    cout << string(40, ' ') << "[1] Insert a New Movie\n";
+    cout << string(40, ' ') << "[2] Rent a Movie\n";
+    cout << string(40, ' ') << "[3] Return a Movie\n";
+    cout << string(40, ' ') << "[4] Show Movie Details\n";
+    cout << string(40, ' ') << "[5] Display All Movie\n";
+    cout << string(40, ' ') << "[6] Check Movie Availability\n";
+    cout << string(40, ' ') << "[7] Customer's Maintenance\n";
+    cout << string(40, ' ') << "[8] Exit Program\n";
+    cout << string(10, ' ') << "==========================================================================================\n\n";
+    cout << string(10, ' ') << "Please choose an option... ";
     cin >> choice;
 
     return choice;

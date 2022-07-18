@@ -1,18 +1,12 @@
 #pragma once
 #include <deque>
-#include <fstream>
-#include <iostream>
 #include <list>
-#include <sstream>
-#include <stack>
 #include <string>
 
 #include "json.hpp"
 
 using namespace std;
-//programmer 1
 
-//Responsible for movie data
 struct VideoAdt
 {
     int Id;
@@ -25,7 +19,6 @@ struct VideoAdt
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(VideoAdt, Id, Copies, Title, Genre, Production, Image)
 };
 
-//Responsible for customer data
 struct CustomerAdt
 {
     int Id;
@@ -48,21 +41,12 @@ struct RentAdt
     }
 };
 
-// Handles All Function
 class MovieStore
 {
 private:
     deque<CustomerAdt> customerQueue;
     list<VideoAdt> videoList;
     list<RentAdt> rentList;
-
-public:
-    MovieStore();
-
-    void DisplayMovies();
-
-    //Movie/files function
-    void AddMovie();
 
     bool RentMovie(CustomerAdt& customer, VideoAdt& video);
 
@@ -80,17 +64,30 @@ public:
 
     void DisplayMovies(list<VideoAdt>& movies);
 
+public:
+    void RentMovie();
 
-    void SaveMovieFile();
-    void SaveCustomerFile();
-    void SaveRentFile();
-
-    //Customer/files function
-    bool IsCustomerEmpty();
-
-    void AddCustomer();
+    void DisplayMovies();
 
     void OpenCustomerFile();
+
+    void AddMovie();
+
+    void ReturnMovie();
+
+    void ShowMovieDetails();
+
+    void CheckVideoAvailability();
+
     void OpenMovieFile();
+
     void OpenRentFile();
+
+    void SaveMovieFile();
+
+    void SaveCustomerFile();
+
+    void CustomerMaintenance();
+
+    void SaveRentFile();
 };

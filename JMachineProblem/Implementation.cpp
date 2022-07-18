@@ -18,9 +18,9 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
     cout << "\n\n\n\n\n\n\n\n\n\n\n";
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY MOVIES\n";
+    cout << string(35, ' ') << "DISPLAY MOVIES\n";
     cout << "======================================================================================================================\n\n";
-    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
+    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << setw(5) << "NO. OF COPIES" << "IMAGE" << "\n";
     cout << "======================================================================================================================\n";
     for (auto& video : movies)
     {
@@ -28,7 +28,8 @@ void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
         cout << setw(10) << video.Title;
         cout << setw(30) << video.Genre;
         cout << setw(30) << video.Production;
-        cout << video.Copies << endl;
+        cout << setw(5)  << video.Copies;
+        cout << video.Image << endl;
     }
 }
 
@@ -332,24 +333,24 @@ bool MovieStore::ReturnMovie(CustomerAdt& customer, VideoAdt& video)
 void MovieStore::ShowMovieDetails(VideoAdt& video)
 {
     cout << left;
-    cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY ALL MOVIEs\n";
-    cout << "======================================================================================================================\n";
-    cout << setw(5) << "ID" << setw(10) << "TITLE" << setw(30) << "GENRE" << setw(30) << "PRODUCTION" << "NO. OF COPIES\n";
-    cout << "======================================================================================================================\n";
+    cout << string(10, ' ') << "=============================================================================\n";
+    cout << string(35, ' ') << "DISPLAY MOVIE\n";
+    cout << string(10, ' ') << "=============================================================================\n";
 
-    cout << setw(5) << video.Id;
-    cout << setw(10) << video.Title;
-    cout << setw(30) << video.Genre;
-    cout << setw(30) << video.Production;
-    cout << video.Copies << endl << endl;
+    cout << setw(15) << "Movie ID" << video.Id << '\n';
+    cout << setw(15) << "Movie Title" << video.Title << '\n';
+    cout << setw(15) << "Movie Genre" << video.Genre << '\n';
+    cout << setw(15) << "Production" << video.Production << '\n';
+    cout << setw(15) << "Movie Copies" << video.Copies << '\n';
+    cout << setw(15) << "Movie Image" << video.Image << '\n';
+    cout << string(10, ' ') << "=============================================================================\n";
 }
 
 void MovieStore::ShowCustomerDetails(CustomerAdt& video)
 {
     cout << left;
     cout << "======================================================================================================================\n";
-    cout << string(40, ' ') << "DISPLAY CUSTOMER\n";
+    cout << string(35, ' ') << "DISPLAY CUSTOMER\n";
     cout << "======================================================================================================================\n";
     cout << setw(5) << "ID" << setw(10) << "NAME" << "ADDRESS" << endl;
     cout << "======================================================================================================================\n";

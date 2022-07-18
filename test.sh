@@ -1,3 +1,3 @@
-cd ~/workspace/JMachineProblem/JMachineProblem
+cd ~/workspace/MachineProblem/JMachineProblem
 g++ *.cpp -o Main
 ./Main

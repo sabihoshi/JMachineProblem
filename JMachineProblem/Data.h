@@ -16,6 +16,11 @@ struct VideoAdt
     string Production;
     string Image;
 
+    bool operator<(const VideoAdt& other) const
+    {
+        return Id == other.Id;
+    }
+
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(VideoAdt, Id, Copies, Title, Genre, Production, Image)
 };
 
@@ -45,8 +50,8 @@ class MovieStore
 {
 private:
     deque<CustomerAdt> customerQueue;
-    list<VideoAdt> videoList;
-    list<RentAdt> rentList;
+    vector<VideoAdt> videoList;
+    vector<RentAdt> rentList;
 
     bool RentMovie(CustomerAdt& customer, VideoAdt& video);
 
@@ -56,13 +61,13 @@ private:
 
     static void ShowCustomerDetails(CustomerAdt& video);
 
-    list<VideoAdt> GetMoviesByCustomer(CustomerAdt& customer);
+    vector<VideoAdt> GetMoviesByCustomer(CustomerAdt& customer);
 
     CustomerAdt* GetCustomer(int id);
 
     VideoAdt* GetVideo(int id);
 
-    void DisplayMovies(list<VideoAdt>& movies);
+    void DisplayMovies(vector<VideoAdt>& movies);
 
 public:
     void RentMovie();

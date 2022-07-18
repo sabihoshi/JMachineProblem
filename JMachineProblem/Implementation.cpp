@@ -13,7 +13,7 @@ void MovieStore::DisplayMovies()
 }
 
 //Display All Movies - Programmer 1
-void MovieStore::DisplayMovies(list<VideoAdt>& movies)
+void MovieStore::DisplayMovies(vector<VideoAdt>& movies)
 {
     cout << left;
     cout << "======================================================================================================================\n";
@@ -65,6 +65,7 @@ void MovieStore::AddMovie()
     cin >> copies;
 
     videoList.push_back({count, copies, title, genre, producer, image});
+    sort(videoList.begin(), videoList.end());
 
     cout << string(10, ' ') << "=============================================================================\n";
     cout << string(50, ' ') << "Movie has been inserted successfully!\n";
@@ -341,9 +342,9 @@ void MovieStore::ShowCustomerDetails(CustomerAdt& video)
     cout << video.Address << endl << endl;
 }
 
-list<VideoAdt> MovieStore::GetMoviesByCustomer(CustomerAdt& customer)
+vector<VideoAdt> MovieStore::GetMoviesByCustomer(CustomerAdt& customer)
 {
-    list<VideoAdt> movies;
+    vector<VideoAdt> movies;
     for (auto& rent : rentList)
     {
         if (rent.CustomerId == customer.Id)
@@ -413,7 +414,8 @@ void MovieStore::OpenMovieFile()
     json j;
     openMov >> j;
 
-    videoList = j.get<list<VideoAdt>>();
+    videoList = j.get<vector<VideoAdt>>();
+    sort(videoList.begin(), videoList.end());
 }
 
 void MovieStore::OpenRentFile()
@@ -423,7 +425,7 @@ void MovieStore::OpenRentFile()
     json j;
     openRent >> j;
 
-    rentList = j.get<list<RentAdt>>();
+    rentList = j.get<vector<RentAdt>>();
 }
 
 //Open Customer File - Programmer 1
